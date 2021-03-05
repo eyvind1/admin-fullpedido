@@ -1,1 +1,112 @@
-<p>productos works!</p>
+<div class="panel-header panel-header-sm">
+    
+</div>
+
+<div class="main-content">
+  <div class="row">
+    <div class="col-md">
+      <div class="card  card-tasks">
+        <div class="card-header ">
+          <h4 class="card-title">Mis Productos</h4>
+        </div>
+        <div class="card-body ">
+          <div class="table-full-width table-responsive">
+            <table class="table">
+                <thead class=" text-primary">
+                    <th>
+                      Imagen
+                    </th>
+                    <th>
+                      Nombre
+                    </th>
+                    <th class="text-left">
+                        Opciones
+                    </th>
+                  </thead>
+              <tbody>
+                <tr *ngFor="let producto of productos | paginate:config">
+                  <td>
+                    <div class="imagen">
+                        <img  *ngIf="producto.prod_cimg === ''; else imagenblock" class="card-img-top " src="../../assets/img/invoice_logo.png" alt="...">
+                        <ng-template #imagenblock>
+                            <img class="card-img-top" alt="..." src={{producto.prod_cimg}} alt="">
+                        </ng-template>
+                    </div>
+                  </td>
+                  <td>
+                     
+                    <p style="font-size: 1.5vh;"> 
+                      {{producto.prod_cdesc}} <br>
+                      P. Mark: {{producto.prod_nprev1 | currency:"S/."}}  <br>
+                      P. Mayo: {{producto.prod_nprev2 | currency:"S/."}} <br>
+                      P. Dist: {{producto.prod_nprev3 | currency:"S/."}}  
+                    </p>
+                  </td>
+                  <td class="td-actions text-left">
+                    <button type="button" rel="tooltip" title="" class="btn btn-info btn-round ">
+                        Editar
+                    </button>
+                    <button type="button" rel="tooltip" title="" class="btn btn-success btn-round ">
+                        Activar
+                    </button>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+            <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+          </div>
+        </div>
+        <div class="card-footer ">
+          <hr>
+          <div class="row">
+              <div class="col">
+                <button class="btn btn-primary pull-right" (click)="open(content)">Agregar Producto</button>
+              </div>
+            <!-- <i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago -->
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Añadir Producto</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <form [formGroup]="productoForm">
+          <div class="form-group">
+            <label for="">Código</label>
+            <input type="text" formControlName="codigo">
+          </div>
+          <div class="form-group">
+            <label for="">Descripción</label>
+            <input type="text" formControlName="descripcion">
+          </div>
+          <div class="form-group">
+            <label for="">Marca</label>
+            <input type="text" formControlName="marca">
+          </div>
+        </form>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
+
+
+<hr>
+

@@ -15,7 +15,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'User Profile',  icon:'users_single-02', class: '' },
     { path: '/table-list', title: 'Table List',  icon:'design_bullet-list-67', class: '' },
     { path: '/typography', title: 'Typography',  icon:'text_caps-small', class: '' },
-    { path: '/mi-perfil', title: 'Mi Perfil', icon:'users_single-02', class: ''}
+    { path: '/mi-perfil', title: 'Mi Perfil', icon:'users_single-02', class: ''},
+    { path: '/productos', title: 'Productos', icon:'shopping_basket', class: ''}
     // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'objects_spaceship', class: 'active active-pro' }
 
 ];
