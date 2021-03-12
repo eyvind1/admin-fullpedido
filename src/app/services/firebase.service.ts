@@ -14,7 +14,7 @@ export class FirebaseService {
   ) { }
 
   consultarUser(){
-    return this.firestor.collection("Gmtc_empresa", ref => ref.where('emp_cruc','==','70000639')).valueChanges({idField:"propertyId"});
+    return this.firestor.collection("Gmtc_empresa", ref => ref.where('emp_cruc','==','20559129390')).valueChanges({idField:"propertyId"});
   }
 
   registrarProducto(id:any ,producto:ProductoModel){
