@@ -43,7 +43,7 @@
                     </p>
                   </td>
                   <td class="td-actions text-left">
-                    <button type="button" rel="tooltip" title="" class="btn btn-info btn-round ">
+                    <button type="button" rel="tooltip" title="" class="btn btn-info btn-round" (click)="openEditar(content,producto)">
                         Editar
                     </button>
                     <button type="button" rel="tooltip" title="" class="btn btn-success btn-round ">
@@ -74,6 +74,7 @@
 </div>
 
 
+<!-- Modal para crear producto -->
 <ng-template #content let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Añadir Producto</h4>
@@ -85,24 +86,285 @@
     <form>
       <div class="form-group">
         <form [formGroup]="productoForm">
-          <div class="form-group">
-            <label for="">Código</label>
-            <input type="text" formControlName="codigo">
+          <div class="row">
+            <div class="col">
+              <!-- input de imagen -->
+              <div 
+                class="custom-dropzone" 
+                ngx-dropzone 
+                [accept]="'image/*'" 
+                (change)="onSelect($event)"
+                >
+                <ngx-dropzone-label>
+                  <div>
+                    <h2>Inserte Imagen</h2>
+                  </div>
+                </ngx-dropzone-label>
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f" [removable]="true" (removed)="onRemove(f)">
+                  <!-- <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label> -->
+                </ngx-dropzone-image-preview>
+                
+              </div>
+              <div class="error">
+                <mat-error>
+                  {{errorImagen}}
+                </mat-error>
+              </div>
+            </div>
+            <div class="col">
+              <!-- input de codigo -->
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  value="" 
+                  placeholder="Código" 
+                  class="form-control" 
+                  formControlName="codigo"
+                  maxlength="10"
+                  #codigo
+                />
+                <mat-error *ngIf="productoForm.controls['codigo'].invalid && (productoForm.controls['codigo'].dirty || productoForm.controls['codigo'].touched)">                 
+                  <mat-error *ngIf="productoForm.controls['codigo'].errors.maxlength">
+                    Máximo 10 caracteres
+                  </mat-error>
+                </mat-error>
+                <mat-error *ngIf="errorCodigo">
+                  El código ya existe
+                </mat-error>
+              </div>
+              <!-- input de marca -->
+              <div class="form-group">
+                <input
+                  type="text" 
+                  value="" 
+                  placeholder="Marca" 
+                  class="form-control" 
+                  formControlName="marca"
+                  required
+                  #marca
+                />
+                <mat-error *ngIf="productoForm.controls['marca'].invalid && (productoForm.controls['marca'].dirty || productoForm.controls['marca'].touched)">                 
+                  <mat-error *ngIf="productoForm.controls['marca'].errors.required">
+                    Campo requerido
+                  </mat-error>
+                </mat-error>
+              </div>
+              <!-- input de stock -->
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  value="" 
+                  placeholder="Stock" 
+                  class="form-control" 
+                  formControlName="stock"
+                  required
+                  #stock
+                />
+                <mat-error *ngIf="productoForm.controls['stock'].invalid && (productoForm.controls['stock'].dirty || productoForm.controls['stock'].touched)">                 
+                  <mat-error *ngIf="productoForm.controls['stock'].errors.required">
+                    Campo requerido
+                  </mat-error>
+                  <mat-error *ngIf="productoForm.controls['stock'].errors.pattern">
+                    Ingrese solo números
+                  </mat-error>
+                </mat-error>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="">Descripción</label>
-            <input type="text" formControlName="descripcion">
+          <!-- input de descripcion -->
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  value="" 
+                  placeholder="Descripción" 
+                  class="form-control" 
+                  formControlName="descripcion" 
+                  required
+                  #descripcion
+                />
+                <mat-error *ngIf="productoForm.controls['descripcion'].invalid && (productoForm.controls['descripcion'].dirty || productoForm.controls['descripcion'].touched)">                 
+                  <mat-error *ngIf="productoForm.controls['descripcion'].errors.required">
+                    Campo requerido
+                  </mat-error>
+                </mat-error>
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="">Marca</label>
-            <input type="text" formControlName="marca">
+          <div class="row">
+            <div class="col">
+              <!-- input de medida -->
+              <div class="form-group text-center">
+                <!-- <input 
+                  type="text" 
+                  value="" 
+                  placeholder="Unidad de Medida" 
+                  class="form-control" 
+                  formControlName="medida"
+                  required
+                  #medida
+                />
+                <mat-error *ngIf="productoForm.controls['medida'].invalid && (productoForm.controls['medida'].dirty || productoForm.controls['medida'].touched)">                 
+                  <mat-error *ngIf="productoForm.controls['medida'].errors.required">
+                    Campo requerido
+                  </mat-error>
+                </mat-error> -->
+                <!-- <label class="Unidad de Medida" for="">holi</label>
+                <select class="form-control form-control-sm" formControlName="medida" required #medida>
+                  <option *ngFor="let medida of medidas" [value]="medida.tume_nid">
+                    {{medida.tume_cdesc}}
+                  </option>
+                  <p>You selected: {{medida}}</p>
+                </select> -->
+                <mat-form-field style="background-color: blue;" appearence="legacy">
+                  <mat-label>Unidad de Medida</mat-label>
+                  <!-- <mat-select [(ngModel)]="medida" name="medida" [ngModelOptions]="{standalone: true}" required> -->
+                  <mat-select formControlName="medida" [errorStateMatcher]="matcher">
+                    <mat-option style="color: black;" *ngFor="let item of medidas" [value]="item.tume">
+                      {{item.tume_cdesc}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="productoForm.controls['medida'].invalid && (productoForm.controls['medida'].dirty || productoForm.controls['medida'].touched)">                 
+                    <mat-error *ngIf="productoForm.controls['medida'].errors.required">
+                      Campo requerido
+                    </mat-error>
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <!-- input de peso -->
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  value="" 
+                  placeholder="Peso(Kg)" 
+                  class="form-control" 
+                  formControlName="peso"
+                  required
+                  #peso
+                />
+                <mat-error *ngIf="productoForm.controls['peso'].invalid && (productoForm.controls['peso'].dirty || productoForm.controls['peso'].touched)">                 
+                  <mat-error *ngIf="productoForm.controls['peso'].errors.required">
+                    Campo requerido
+                  </mat-error>
+                  <mat-error *ngIf="productoForm.controls['peso'].errors.pattern">
+                    Ingrese solo números
+                  </mat-error>
+                </mat-error>
+              </div>
+            </div>
+            <div class="col">
+              <!-- input de precio marketplace-->
+              <div class="form-group">
+                <input   
+                  type="text" 
+                  value="" 
+                  placeholder="P. Marketplace" 
+                  class="form-control" 
+                  formControlName="pv1"
+                  
+                  #pv1
+                />
+                <mat-error *ngIf="productoForm.controls['pv1'].invalid && (productoForm.controls['pv1'].dirty || productoForm.controls['pv1'].touched)">                 
+                  <!-- <mat-error *ngIf="productoForm.controls['pv1'].errors.required">
+                    Campo requerido
+                  </mat-error> -->
+                  <mat-error *ngIf="productoForm.controls['pv1'].errors.pattern">
+                    Ingrese solo números
+                  </mat-error>
+                </mat-error>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <!-- input de precio mayorista -->
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  value="" 
+                  placeholder="P. Mayorista" 
+                  class="form-control" 
+                  formControlName="pv2"
+                  
+                  #pv2
+                />
+                <mat-error *ngIf="productoForm.controls['pv2'].invalid && (productoForm.controls['pv2'].dirty || productoForm.controls['pv2'].touched)">                 
+                  <!-- <mat-error *ngIf="productoForm.controls['pv2'].errors.required">
+                    Campo requerido
+                  </mat-error> -->
+                  <mat-error *ngIf="productoForm.controls['pv2'].errors.pattern">
+                    Ingrese solo números
+                  </mat-error>
+                </mat-error>
+              </div>
+            </div>
+            <div class="col">
+              <!-- input de precio distribuidor-->
+              <div class="form-group">
+                <input
+                  type="text" 
+                  value="" 
+                  placeholder="P. Distribuidor" 
+                  class="form-control" 
+                  formControlName="pv3"
+                  
+                  #pv3
+                />
+                <mat-error *ngIf="productoForm.controls['pv3'].invalid && (productoForm.controls['pv3'].dirty || productoForm.controls['pv3'].touched)">                 
+                  <!-- <mat-error *ngIf="productoForm.controls['pv3'].errors.required">
+                    Campo requerido
+                  </mat-error> -->
+                  <mat-error *ngIf="productoForm.controls['pv3'].errors.pattern">
+                    Ingrese solo números
+                  </mat-error>
+                </mat-error>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <!-- input de categoria-->
+              <div class="form-group">
+                <input 
+                  type="text" 
+                  value="" 
+                  placeholder="Categoria" 
+                  class="form-control" 
+                  formControlName="categoria"
+                  required
+                  #categoria
+                />
+                <mat-error *ngIf="productoForm.controls['categoria'].invalid && (productoForm.controls['categoria'].dirty || productoForm.controls['categoria'].touched)">                 
+                  <mat-error *ngIf="productoForm.controls['categoria'].errors.required">
+                    Campo requerido
+                  </mat-error>
+                </mat-error>
+              </div>
+              
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="">Ficha Técnica</label>
+              <app-f-dropzone 
+                [(model)]="model"
+                [maxSize]="1000000"
+                [allowedFiles]="['application/pdf']"
+              >
+              </app-f-dropzone>
+            </div>
           </div>
         </form>
       </div>
     </form>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-primary" (click)="guardarProducto()" [disabled]="!productoForm.valid">Guardar</button>
   </div>
 </ng-template>
 

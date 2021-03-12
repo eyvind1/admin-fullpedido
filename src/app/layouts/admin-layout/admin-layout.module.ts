@@ -16,6 +16,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { ProductosComponent } from '../../productos/productos.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { MatInputModule } from '@angular/material/input';
+import { ComponentsModule } from '../../components/components.module';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   imports: [
@@ -27,7 +33,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ToastrModule.forRoot(), 
     NgxPaginationModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxDropzoneModule,
+    MatInputModule,
+    ComponentsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatMenuModule,
+    
   ],
   declarations: [
     DashboardComponent,
@@ -38,7 +51,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    ProductosComponent
+    ProductosComponent,
   ]
 })
 

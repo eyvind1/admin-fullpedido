@@ -13,6 +13,7 @@ import { AppComponent } from './app.component';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AngularFireModule } from '@angular/fire';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 
 
@@ -27,6 +28,7 @@ import { environment } from '../environments/environment';
     NgbModule,
     ToastrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireStorageModule
   ],
   declarations: [
     AppComponent,
