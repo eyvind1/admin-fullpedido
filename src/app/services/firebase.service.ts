@@ -41,4 +41,13 @@ export class FirebaseService {
   arrayVentasCotizaciones(){
     return this.firestor.collection("Gmtc_cotizacion", ref => ref.where('emp_cruc_rec', '==', '20455048592')).valueChanges();
   }
+
+  arrayComprasVentas(){
+    return this.firestor.collection("Gmtc_orden", ref => ref.where('emp_cruc_emi', '==', '20455048592')).valueChanges();
+  }
+
+  arrayComprasCotizaciones(){
+    return this.firestor.collection("Gmtc_cotizacion", ref => ref.where('emp_cruc_emi', '==', '20455048592')).valueChanges();
+  }
+
 }
