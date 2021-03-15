@@ -23,6 +23,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { PerfilUsuarioComponent } from '../../perfil-usuario/perfil-usuario.component';
+import { VentasComponent } from '../../ventas/ventas.component';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { PerfilUsuarioComponent } from '../../perfil-usuario/perfil-usuario.comp
     NotificationsComponent,
     ProductosComponent,
     PerfilUsuarioComponent,
+    VentasComponent,
   ]
 })
 

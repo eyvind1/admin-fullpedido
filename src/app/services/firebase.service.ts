@@ -14,8 +14,9 @@ export class FirebaseService {
   ) { }
 
   consultarUser(){
-    //20559129390 ferrimax
-    return this.firestor.collection("Gmtc_empresa", ref => ref.where('emp_cruc','==','70000639')).valueChanges({idField:"propertyId"});
+    // 20559129390 ferrimax
+    // 20455048592 ferdimax
+    return this.firestor.collection("Gmtc_empresa", ref => ref.where('emp_cruc','==','20455048592')).valueChanges({idField:"propertyId"});
   }
 
   registrarProducto(id:any ,producto:ProductoModel){
@@ -31,5 +32,13 @@ export class FirebaseService {
         prod_activo: 
       })
     }); */
+  }
+
+  arrayVentasVentas(){
+    return this.firestor.collection("Gmtc_orden", ref => ref.where('emp_cruc_rec', '==', '20455048592')).valueChanges();
+  }
+
+  arrayVentasCotizaciones(){
+    return this.firestor.collection("Gmtc_cotizacion", ref => ref.where('emp_cruc_rec', '==', '20455048592')).valueChanges();
   }
 }
