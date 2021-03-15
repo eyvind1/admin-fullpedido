@@ -138,6 +138,7 @@ export class ProductosComponent implements OnInit {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
+      this.productoForm.reset();
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
   }
@@ -256,12 +257,12 @@ export class ProductosComponent implements OnInit {
       //console.log(this.producto);
       console.log(this.empresa);
       //console.log(this.producto);
-      /* this._firebase.registrarProducto(this.empresa.propertyId, this.producto).then(resp =>{
+      this._firebase.registrarProducto(this.empresa.propertyId, this.producto).then(resp =>{
         this.productoForm.reset();
         this.modalService.dismissAll();
       }).catch(error =>{
         console.error(error);
-      }); */
+      }); 
       
     }
     
@@ -289,5 +290,21 @@ export class ProductosComponent implements OnInit {
   } else {
     return false;
   }
+ }
+
+ actualizarProducto(){
+   this.productoForm.reset();
+ }
+
+ /** boton activar producto */
+ activarProducto(estado){
+  if(estado == true){
+    console.log(this.producto);
+    return false;  
+  }
+  else {
+    return true;
+  }
+  
  }
 }

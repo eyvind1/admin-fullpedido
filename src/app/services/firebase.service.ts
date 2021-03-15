@@ -14,7 +14,8 @@ export class FirebaseService {
   ) { }
 
   consultarUser(){
-    return this.firestor.collection("Gmtc_empresa", ref => ref.where('emp_cruc','==','20559129390')).valueChanges({idField:"propertyId"});
+    //20559129390 ferrimax
+    return this.firestor.collection("Gmtc_empresa", ref => ref.where('emp_cruc','==','70000639')).valueChanges({idField:"propertyId"});
   }
 
   registrarProducto(id:any ,producto:ProductoModel){
@@ -22,5 +23,13 @@ export class FirebaseService {
                 //emp_aprod: firestore.firestore.FieldValue.arrayUnion(classToPlain(producto))
                 "emp_aprod": firestore.firestore.FieldValue.arrayUnion(classToPlain(producto))
                 });
+  }
+
+  actualizarEstadoProducto(id:any, producto:ProductoModel){
+    /* return this.firestor.collection("Gmtc_empresa").doc(id).update({
+      emp_aprod: firestore.firestore.FieldValue.arrayUnion({
+        prod_activo: 
+      })
+    }); */
   }
 }
