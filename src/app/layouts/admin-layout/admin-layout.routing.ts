@@ -11,6 +11,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { PerfilUsuarioComponent } from '../../perfil-usuario/perfil-usuario.component';
 import { ProductosComponent } from '../../productos/productos.component';
 import { VentasComponent } from '../../ventas/ventas.component';
+import { ComprasComponent } from '../../compras/compras.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -25,4 +26,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'mi-perfil',      component: PerfilUsuarioComponent},
     { path: 'productos',      component: ProductosComponent},
     { path: 'ventas',         component: VentasComponent},
+    { path: 'compras',         component: ComprasComponent},
 ];

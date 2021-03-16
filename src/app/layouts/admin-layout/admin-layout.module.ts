@@ -24,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { PerfilUsuarioComponent } from '../../perfil-usuario/perfil-usuario.component';
 import { VentasComponent } from '../../ventas/ventas.component';
+import { ComprasComponent } from '../../compras/compras.component';
 
 @NgModule({
   imports: [
@@ -56,6 +57,7 @@ import { VentasComponent } from '../../ventas/ventas.component';
     ProductosComponent,
     PerfilUsuarioComponent,
     VentasComponent,
+    ComprasComponent,
   ]
 })
 
