@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
         if(this.empresa.length == 1 && this.empresa[0].emp_cpassw == password){
           Sweetalert.fnc("close",null,null);
           this._data.logueado = true;
+          localStorage.setItem('empresa',JSON.stringify(this.empresa));
           this.router.navigate(['/dashboard']);
         }
         else{

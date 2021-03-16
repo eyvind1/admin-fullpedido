@@ -23,6 +23,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 export class ProductosComponent implements OnInit {
 
+  myuser:any;
   empresa:any=[];
   productos:any=[];
   codigos:any=[];
@@ -54,6 +55,8 @@ export class ProductosComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.myuser = JSON.parse(localStorage.getItem('empresa'));
+    console.log(this.myuser);
     /** obtener las unidades de medida */
     this.medidas = this._unidadmedida.getUnidadMedidas(); 
     /** formulario producto*/ 
