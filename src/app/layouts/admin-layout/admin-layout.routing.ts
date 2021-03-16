@@ -26,5 +26,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'mi-perfil',      component: PerfilUsuarioComponent},
     { path: 'productos',      component: ProductosComponent},
     { path: 'ventas',         component: VentasComponent},
-    { path: 'compras',         component: ComprasComponent},
+    { path: 'compras',        component: ComprasComponent},
 ];
