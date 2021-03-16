@@ -57,6 +57,7 @@ import { ComprasComponent } from '../../compras/compras.component';
     ProductosComponent,
     PerfilUsuarioComponent,
     VentasComponent,
+    ComprasComponent,
   ]
 })
 

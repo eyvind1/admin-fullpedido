@@ -8,13 +8,12 @@
           <h4 class="card-title"> Mis Compras </h4>
         </div>
         <div class="card-body">
-            <p>{{arraycompras[0].estado}}</p>
-            <div *ngFor="let item of arraycompras">
-                
-                <p>
-                   {{item.estado}}
-                </p>
-            </div>
+            <!-- <p>{{arraycompras[0].estado}}</p> -->
+           <ul>
+             <li *ngFor="let item of arraycompras">
+              <span>{{item.cotiz_cdoc}}</span>
+             </li>
+           </ul>
         </div>
       </div>
     </div>   
