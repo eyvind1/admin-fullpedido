@@ -19,6 +19,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/productos', title: 'Productos', icon:'shopping_basket', class: ''},
     { path: '/ventas', title: 'Mis Ventas', icon:'shopping_shop', class: ''},
     { path: '/compras', title: 'Mis Compras', icon:'shopping_shop', class: ''},
+   
     //{ path: '/upgrade', title: 'Upgrade to PRO',  icon:'objects_spaceship', class: 'active active-pro' }
 
 ];

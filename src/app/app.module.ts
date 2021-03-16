@@ -1,6 +1,6 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -15,12 +15,12 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
-// import { VentasComponent } from './ventas/ventas.component';
-import { ComprasComponent } from './compras/compras.component';
-
+import { CommonModule } from '@angular/common';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   imports: [
+    CommonModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
@@ -30,13 +30,14 @@ import { ComprasComponent } from './compras/compras.component';
     NgbModule,
     ToastrModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    // VentasComponent,
-    /*ComprasComponent,*/
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

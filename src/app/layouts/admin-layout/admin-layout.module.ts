@@ -35,7 +35,6 @@ import { ComprasComponent } from '../../compras/compras.component';
     NgbModule,
     ToastrModule.forRoot(), 
     NgxPaginationModule,
-    FormsModule,
     ReactiveFormsModule,
     NgxDropzoneModule,
     MatInputModule,

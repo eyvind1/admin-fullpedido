@@ -50,4 +50,7 @@ export class FirebaseService {
     return this.firestor.collection("Gmtc_cotizacion", ref => ref.where('emp_cruc_emi', '==', '20455048592')).valueChanges();
   }
 
+  consultUser(documento:string){
+    return this.firestor.collection("Gmtc_empresa", ref => ref.where("emp_cruc", "==", documento)).valueChanges();
+  }
 }
