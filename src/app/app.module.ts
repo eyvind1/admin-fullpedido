@@ -16,6 +16,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { VentasComponent } from './ventas/ventas.component';
+/*import { ComprasComponent } from './compras/compras.component';*/
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { VentasComponent } from './ventas/ventas.component';
     AppComponent,
     AdminLayoutComponent,
     VentasComponent,
+    /*ComprasComponent,*/
   ],
   providers: [],
   bootstrap: [AppComponent]
