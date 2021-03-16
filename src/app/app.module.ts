@@ -15,7 +15,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
-import { VentasComponent } from './ventas/ventas.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
@@ -34,7 +34,7 @@ import { VentasComponent } from './ventas/ventas.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    VentasComponent,
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
