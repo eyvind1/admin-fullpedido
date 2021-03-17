@@ -385,28 +385,233 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">FP-OrdenCompra</h5>
+                                                <h5 class="modal-title text-center">FP-OrdenCompra</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                           </button>
                                             </div>
-                                            <div class="row">
-                                                <div>
-                                                    <h5>RUC/Cliente</h5>
-                                                    <p>12345678909</p>
-                                                </div>
-                                                <div>
-                                                    <h5>RUC/Cliente</h5>
-                                                    <p>12345678909</p>
-                                                </div>
-                                            </div>
 
                                             <div class="modal-body">
-                                                <p>Modal body text goes here.</p>
+                                                <form class="needs-validation" novalidate>
+                                                    <fieldset disabled>
+                                                        <div class="form-row">
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="validationCustom01">RUC/Cliente</label>
+                                                                <input type="text" class="form-control" id="validationCustom01" value="Mark">
+                                                                <div class="valid-feedback">
+                                                                    Looks good!
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="validationCustom02">Razon Social / Cliente</label>
+                                                                <input type="text" class="form-control" id="validationCustom02" value="Otto">
+                                                                <div class="valid-feedback">
+                                                                    Looks good!
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </fieldset>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-3 mb-3">
+                                                            <label for="validationCustom01">Serie</label>
+                                                            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 mb-3">
+                                                            <label for="validationCustom02">Número de OC</label>
+                                                            <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3 mb-3">
+                                                            <label for="validationCustom01">Ubigeo</label>
+                                                            <input type="text" class="form-control" id="validationCustom01" value="Mark" disabled>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-3 mb-3">
+                                                            <label for="validationCustom02">Moneda</label>
+                                                            <input type="text" class="form-control" id="validationCustom02" value="Otto" disabled>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-12 mb-3">
+                                                            <label for="validationCustom02">Dirección Completa</label>
+                                                            <input type="text" class="form-control" id="validationCustom02" value="Otto" disabled>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                </form>
+
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="card">
+
+                                                            <div class="card-body">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-striped">
+                                                                        <thead class=" text-primary ">
+
+                                                                            <th>
+                                                                                Cant.
+                                                                            </th>
+                                                                            <th>
+                                                                                Descripción
+                                                                            </th>
+                                                                            <th class="text-right">
+                                                                                Desc.(%)
+                                                                            </th>
+
+                                                                            <th class="text-right">
+                                                                                Total
+                                                                            </th>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <tr>
+
+                                                                                <td>
+                                                                                    Niger
+                                                                                </td>
+                                                                                <td>
+                                                                                    Oud-Turnhout
+                                                                                </td>
+                                                                                <td class="text-right">
+                                                                                    Oud-Turnhout
+                                                                                </td>
+
+                                                                                <td class="text-right">
+                                                                                    $36,738
+                                                                                </td>
+
+                                                                            </tr>
+
+                                                                            <tr>
+
+                                                                                <td>
+                                                                                    Niger
+                                                                                </td>
+                                                                                <td>
+                                                                                    Oud-Turnhout
+                                                                                </td>
+                                                                                <td class="text-right">
+                                                                                    Oud-Turnhout
+                                                                                </td>
+
+                                                                                <td class="text-right">
+                                                                                    $36,738
+                                                                                </td>
+
+                                                                            </tr>
+
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="row">
+
+                                                    <div class="col col-md-7 mb-3">
+                                                        <form class="needs-validation" novalidate>
+
+                                                            <div class="form-row">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom01">Condición</label>
+                                                                    <input type="text" class="form-control" id="validationCustom01" value="Mark">
+                                                                    <div class="valid-feedback">
+                                                                        Looks good!
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom02">Días</label>
+                                                                    <input type="number" class="form-control" id="validationCustom02" value="Otto">
+                                                                    <div class="valid-feedback">
+                                                                        Looks good!
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom01">Anticipio</label>
+                                                                    <input type="text" class="form-control" id="validationCustom01" value="Mark">
+                                                                    <div class="valid-feedback">
+                                                                        Looks good!
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom02">Fecha Vencimiento</label>
+                                                                    <input type="date" class="form-control" id="validationCustom02" value="Otto">
+                                                                    <div class="valid-feedback">
+                                                                        Looks good!
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+                                                    <div class="col col-md-5 mb-3">
+                                                        <form>
+                                                            <div class="form-row">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom01">Precio Venta: </label>
+
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom02">22.22</label>
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom01">Descuento:</label>
+
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom02">0.0</label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-row">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom01">Total Venta:</label>
+
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <label for="validationCustom02">22.22</label>
+
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+
+
+                                                </div>
+
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">CERRAR</button>
+                                                <button type="button" class="btn btn-success">ACEPTAR</button>
                                             </div>
                                         </div>
                                     </div>
