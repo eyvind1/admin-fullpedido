@@ -12,6 +12,8 @@ import { PerfilUsuarioComponent } from '../../perfil-usuario/perfil-usuario.comp
 import { ProductosComponent } from '../../productos/productos.component';
 import { VentasComponent } from '../../ventas/ventas.component';
 import { ComprasComponent } from '../../compras/compras.component';
+import { ComprasMiscomprasComponent } from '../../compras-miscompras/compras-miscompras.component';
+import { ComprasMiscotizacionesComponent } from '../../compras-miscotizaciones/compras-miscotizaciones.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -26,5 +28,10 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'mi-perfil',      component: PerfilUsuarioComponent},
     { path: 'productos',      component: ProductosComponent},
     { path: 'ventas',         component: VentasComponent},
-    { path: 'compras',        component: ComprasComponent},
+    { path: 'compras',         component: ComprasComponent,
+        children: [
+            {path: 'miscompras',    component: ComprasMiscomprasComponent},
+            {path: 'miscotizaciones',   component: ComprasMiscotizacionesComponent},
+        ] 
+    },
 ];

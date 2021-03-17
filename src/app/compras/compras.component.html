@@ -1,22 +1,476 @@
 <div class="panel-header panel-header-sm">
-</div>
-<div class="main-content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title"> Mis Compras </h4>
-        </div>
-        <div class="card-body">
-            <!-- <p>{{arraycompras[0].estado}}</p> -->
-           <ul>
-             <li *ngFor="let item of arraycompras">
-              <span>{{item.cotiz_cdoc}}</span>
-             </li>
-           </ul>
-        </div>
-      </div>
-    </div>   
-    </div>
+
 </div>
 
+
+
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title text-center">{{current_usuario.emp_cncomer}}</h5>
+                    <h6 class="title text-center">{{current_usuario.emp_crass}}</h6>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="card-body">
+
+                    <ul role="tablist" class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a data-toggle="tab" href="#cotizar" role="tablist" class="nav-link cotizar-btn active"> COTIZAR </a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-toggle="tab" href="#ventas" role="tablist" class="nav-link cotizar-btn "> MIS COMPRAS </a>
+                        </li>
+
+                    </ul>
+
+                    <div class="tab-content tab-space">
+                        <div id="cotizar" class="tab-pane cotizar active">
+
+                            <hr>
+
+                            <div class="card-body all-icons">
+                                <div class="row ">
+
+                                    <div class=" text-center contenedor-icono">
+                                        <a class="link-icono" href="#">
+                                            <i class="now-ui-icons loader_refresh"></i>
+                                            <p>Actualizar (f5)</p>
+                                        </a>
+
+                                    </div>
+                                    <div class=" text-center contenedor-icono">
+                                        <a class="link-icono" href="#">
+                                            <i class="now-ui-icons files_paper"></i>
+                                            <p>Documento</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <h4>COTIZACIONES</h4>
+                                <hr>
+                                <div>
+                                    <form class="form-inline">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+
+                                        <label for="" class="mx-3">LISTA DE COTIZACIONES  </label>
+
+                                        <label for="">DESDE:
+                                        <input type="date" class="mr-3">
+                                    </label>
+
+                                        <label for="">HASTA:
+                                        <input type="date" name="" id="">
+                                    </label>
+
+                                        <button class="btn btn-primary btn-round ml-5" type="submit">Buscar</button>
+                                    </form>
+                                </div>
+
+                                <div>
+                                    <div class="col-md-12">
+                                        <div class="card">
+
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class="text-primary text-center">
+                                                            <th>
+                                                                RUC. Emisor
+                                                            </th>
+                                                            <th>
+                                                                Empresa Emisora
+                                                            </th>
+                                                            <th>
+                                                                Provincia
+                                                            </th>
+                                                            <th>
+                                                                Distrito
+                                                            </th>
+                                                            <th>
+                                                                Dirección
+                                                            </th>
+                                                            <th class="text-right">
+                                                                Fecha
+                                                            </th>
+                                                            <th class="text-right">
+                                                                Estado
+                                                            </th>
+                                                            <th>
+                                                                Detalle
+                                                            </th>
+                                                        </thead>
+                                                        <tbody class="text-center">
+                                                            <tr *ngFor="let cotizacion of arraycotizaciones">
+                                                                <td>
+                                                                    {{cotizacion.emp_cruc_emi}}
+                                                                </td>
+                                                                <td>
+                                                                    {{cotizacion.emp_nraz_emi}}
+                                                                </td>
+                                                                <td class="text-right">
+                                                                    {{cotizacion.cotiz_cprov}}
+                                                                </td>
+                                                                <td>
+                                                                    {{cotizacion.cotiz_cdist}}
+                                                                </td>
+                                                                <td>
+                                                                    {{cotizacion.cotiz_cdirec}}
+                                                                </td>
+                                                                <td>
+                                                                    {{cotizacion.cotiz_dfech_emi.toDate() | date:'MM/dd/yyyy'}}
+                                                                </td>
+                                                                <td>
+                                                                    {{cotizacion.cotiz_estado[0].estado}}
+                                                                </td>
+                                                                <td>
+                                                                    <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#ventanaModalDetalleCotizacionId" type="button">Ver</button>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <button type="button" class="btn btn-primary btn-round">Agregar Cotizacion</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="col-md-12">
+                                            <div class="card">
+
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead class=" text-primary text-center">
+                                                                <th>
+                                                                    Cant.
+                                                                </th>
+                                                                <th>
+                                                                    Descripción
+                                                                </th>
+                                                                <th>
+                                                                    Precio U.
+                                                                </th>
+                                                                <th>
+                                                                    Total
+                                                                </th>
+                                                                <th>
+                                                                    Detalle
+                                                                </th>
+                                                            </thead>
+                                                            <tbody class="text-center">
+                                                                <tr>
+                                                                    <td>
+                                                                        Dakota Rice
+                                                                    </td>
+                                                                    <td>
+                                                                        Niger
+                                                                    </td>
+                                                                    <td>
+                                                                        Oud-Turnhout
+                                                                    </td>
+                                                                    <td>
+                                                                        $36,738
+                                                                    </td>
+                                                                    <td>
+                                                                        <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#ventanaModalDetalleCotizacion" type="button">Ver Detalle</button>
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        Dakota Rice
+                                                                    </td>
+                                                                    <td>
+                                                                        Niger
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        Oud-Turnhout
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        $36,738
+                                                                    </td>
+                                                                    <td>
+                                                                        <button class="btn btn-primary btn-round" data-toggle="modal" data-target="#ventanaModalDetalleCotizacion" type="button">Ver Detalle</button>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card" style="width: 18rem;">
+                                            <div class="card-body text-center">
+                                                <h5 class="card-title ">CREADO</h5>
+                                                
+
+                                                <button type="button" class="btn btn-primary btn-round">SOLICITAR COTIZACIÓN</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+                        <!-- ==================================================================================================================== -->
+                        <!-- vista  de la pestaña de MIS COMPRAS -->
+                        <div id="ventas" class="tab-pane cotizar">
+                            <hr>
+
+                            <div class="card-body all-icons">
+                                <div class="row ">
+
+                                    <div class=" text-center contenedor-icono">
+                                        <a class="link-icono" data-toggle="modal" data-target="#ventanaModal">
+                                            <i class="now-ui-icons design-2_ruler-pencil"></i>
+                                            <p>Ver</p>
+                                        </a>
+
+                                    </div>
+
+                                    <div class=" text-center contenedor-icono">
+                                        <a class="link-icono" href="#">
+                                            <i class="now-ui-icons loader_refresh"></i>
+                                            <p>Actualizar (f5)</p>
+                                        </a>
+
+                                    </div>
+                                    <div class=" text-center contenedor-icono">
+                                        <a class="link-icono" href="#">
+                                            <i class="now-ui-icons ui-1_lock-circle-open"></i>
+                                            <p>Desbloquear</p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <h4>MIS COMPRAS</h4>
+                                <hr>
+                                
+                                <div>
+                                    <form class="form-inline">
+                                        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+
+                                        <label for="" class="mx-3">LISTA DE COMPRAS  </label>
+
+
+
+                                        <button class="btn btn-primary btn-round ml-5" type="submit">Buscar</button>
+                                    </form>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card">
+
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <table class="table">
+                                                        <thead class=" text-primary">
+
+                                                            <th>
+                                                                Número
+                                                            </th>
+                                                            <th>
+                                                                RUC / Cliente
+                                                            </th>
+                                                            <th>
+                                                                RAZ. SOCIAL / Cliente
+                                                            </th>
+                                                            <th>
+                                                                Total
+                                                            </th>
+                                                            <th class="text-right">
+                                                                Estado
+                                                            </th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let compra of arraycompras">
+
+                                                                <td>
+                                                                    {{compra.emp_cruc_emi}}
+                                                                </td>
+                                                                <td>
+                                                                    {{compra.emp_cruc_emi}}
+                                                                </td>
+                                                                <td>
+                                                                    {{compra.emp_cruc_rec}}
+                                                                </td>
+                                                                <td>
+                                                                  {{compra.ord_ntota | currency:"S/."}}
+                                                                </td>
+
+                                                                <td *ngIf="compra.estado !== true ; else elseActivo" class="text-right">
+                                                                    Desactivado
+                                                                </td>
+                                                                <ng-template #elseActivo>
+                                                                    <td class="text-right">
+                                                                        Activado
+                                                                    </td>
+                                                                </ng-template>
+                                                                <td>
+                                                                    <button class="btn btn-warning" data-toggle="modal" data-target="#ventanaModal" type="button">Ver</button>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- modal para ver y editar ventas -->
+                                <div class="modal" id="ventanaModal" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">FP-OrdenCompra</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                            </div>
+                                            <div class="row">
+                                                <div>
+                                                    <h5>RUC/Cliente</h5>
+                                                    <p>12345678909</p>
+                                                </div>
+                                                <div>
+                                                    <h5>RUC/Cliente</h5>
+                                                    <p>12345678909</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <p>Modal body text goes here.</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+                                <!-- contenido de la tabla inferior para ver las ventas -->
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="col-md-12">
+                                            <div class="card">
+
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table">
+                                                            <thead class=" text-primary">
+                                                                <th>
+                                                                    Cant.
+                                                                </th>
+                                                                <th>
+                                                                    Descripción
+                                                                </th>
+                                                                <th class="text-right">
+                                                                    Precio U.
+                                                                </th>
+                                                                <th class="text-right">
+                                                                    Total
+                                                                </th>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>
+                                                                        Dakota Rice
+                                                                    </td>
+                                                                    <td>
+                                                                        Niger
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        Oud-Turnhout
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        $36,738
+                                                                    </td>
+                                                                </tr>
+
+                                                                <tr>
+                                                                    <td>
+                                                                        Dakota Rice
+                                                                    </td>
+                                                                    <td>
+                                                                        Niger
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        Oud-Turnhout
+                                                                    </td>
+                                                                    <td class="text-right">
+                                                                        $36,738
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card" style="width: 18rem;">
+                                            <div class="card-body text-center">
+
+                                                <h5 class="card-subtitle mb-2 text-muted">ESTADO</h5>
+                                                <ol>
+                                                    <li>CREADO</li>
+                                                    <li>ATENDIDO</li>
+                                                    <li>EMBALAJE</li>
+                                                    <li>ENVIADO</li>
+                                                    <li>RECIBIDO</li>
+                                                </ol>
+                                                <button type="button" class="btn btn-primary btn-block">IMPRIMIR</button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div>

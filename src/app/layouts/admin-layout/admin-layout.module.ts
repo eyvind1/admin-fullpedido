@@ -25,6 +25,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { PerfilUsuarioComponent } from '../../perfil-usuario/perfil-usuario.component';
 import { VentasComponent } from '../../ventas/ventas.component';
 import { ComprasComponent } from '../../compras/compras.component';
+import { ComprasMiscomprasComponent } from '../../compras-miscompras/compras-miscompras.component';
+import { ComprasMiscotizacionesComponent } from '../../compras-miscotizaciones/compras-miscotizaciones.component';
 
 @NgModule({
   imports: [
@@ -57,6 +59,8 @@ import { ComprasComponent } from '../../compras/compras.component';
     PerfilUsuarioComponent,
     VentasComponent,
     ComprasComponent,
+    ComprasMiscomprasComponent,
+    ComprasMiscotizacionesComponent,
   ]
 })
 

@@ -1,0 +1,120 @@
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header text-center">
+          <h4 class="title">FERRIMAX EIRL</h4>
+          <p class="title">FERRETERIA INTEGRAL MAX E.I.R.L. - FERRIMAX E.I.R.L.</p>
+        </div>
+
+        <div class="card-body">
+          <router-outlet></router-outlet>
+          <button (click)="mostrarCotizaciones()" type="button" class="btn btn-info btn-lg">COTIZAR</button>
+          <button (click)="mostrarCompras()" type="button" class="btn btn-neutral btn-lg">MIS VENTAS</button>
+          <hr>
+          <button type="button" class="btn btn-neutral btn-lg all-icons">
+                <i class="now-ui-icons arrows-1_refresh-69"></i>
+                <p>Actualizar (F5)</p>
+          </button>
+          <button type="button" class="btn btn-neutral btn-lg all-icons">
+            <i class="now-ui-icons files_paper"></i>
+            <p>Documento</p>
+          </button>
+          <div class="text-center">
+            <h3>COTIZACIONES</h3>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6 col-lg-2">
+              <div class="form-group">
+                <input type="text" value="" placeholder="Buscar" class="form-control" />
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-2">
+              <div class="form-group">
+                  <input type="text" value="" placeholder="Buscar3" class="form-control" />
+              </div>
+            </div>
+            <div class="col-sm-6 col-lg-2">
+              <div class="form-group">
+                  <input type="text" value="" placeholder="Buscar4" class="form-control" />
+              </div>
+            </div>
+          </div>
+          
+          <div class="card">
+            <div class="card-body table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    RUC. Emisor
+                  </th>
+                  <th>
+                    Empresa Receptora
+                  </th>
+                  <th>
+                    Provincia
+                  </th>
+                  <th>
+                    Distrito
+                  </th>
+                  <th>
+                    Dirección
+                  </th>
+                  <th class="text-right">
+                    Fecha
+                  </th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Dakota Rice
+                    </td>
+                    <td>
+                      Niger
+                    </td>
+                    <td>
+                      Oud-Turnhout
+                    </td>
+                    <td>
+                      Oud-Turnhout
+                    </td>
+                    <td>
+                      Oud-Turnhout
+                    </td>
+                    <td class="text-right">
+                      $36,738
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Dakota Rice
+                    </td>
+                    <td>
+                      Niger
+                    </td>
+                    <td>
+                      Oud-Turnhout
+                    </td>
+                    <td>
+                      Oud-Turnhout
+                    </td>
+                    <td>
+                      Oud-Turnhout
+                    </td>
+                    <td class="text-right">
+                      $36,738
+                    </td>
+                  </tr>  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <hr>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

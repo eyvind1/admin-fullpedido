@@ -17,6 +17,11 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { CommonModule } from '@angular/common';
 import { LoginComponent } from './auth/login/login.component';
+import { VentasComponent } from './ventas/ventas.component';
+/*import { ComprasMiscomprasComponent } from './compras-miscompras/compras-miscompras.component';
+import { ComprasMiscotizacionesComponent } from './compras-miscotizaciones/compras-miscotizaciones.component';
+import { ComprasComponent } from './compras/compras.component';*/
+
 
 @NgModule({
   imports: [
@@ -38,6 +43,10 @@ import { LoginComponent } from './auth/login/login.component';
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
+    VentasComponent,
+    /*ComprasMiscomprasComponent,
+    ComprasMiscotizacionesComponent,
+    ComprasComponent,*/
   ],
   providers: [],
   bootstrap: [AppComponent]
