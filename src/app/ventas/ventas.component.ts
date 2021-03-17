@@ -34,4 +34,6 @@ export class VentasComponent implements OnInit {
     })
   }
 
+ 
+
 }

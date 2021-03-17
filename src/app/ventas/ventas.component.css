@@ -1,0 +1,10 @@
+.contenedor-icono {
+    /* border: 1px solid #000; */
+    margin-right: 20px;
+}
+
+.contenedor-icono:hover {
+    /* border: 1px solid #000; */
+    background: #f2f2f2;
+    border-radius: 10px;
+}
